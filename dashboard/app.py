@@ -29,7 +29,7 @@ def load_model():
     return model, scaler, threshold, feat_cols
 @st.cache_data
 def load_data():
-    return pd.read_csv("test_results.csv")
+    return pd.read_csv("dashboard/test_results.csv")
 
 model, scaler, threshold, feat_cols = load_model()
 df = load_data()
