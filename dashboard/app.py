@@ -19,9 +19,9 @@ st.set_page_config(
 # ── Load artefacts ────────────────────────────────────────────────
 @st.cache_resource
 def load_model():
-    model     = joblib.load("model.pkl")
-    scaler    = joblib.load("scaler.pkl")
-    threshold = joblib.load("threshold.pkl")
+    model     = joblib.load("dashboard/model.pkl")
+    scaler    = joblib.load("dashboard/scaler.pkl")
+    threshold = joblib.load("dashboard/threshold.pkl")
     with open("feature_cols.json") as f:
         feat_cols = json.load(f)
     return model, scaler, threshold, feat_cols
