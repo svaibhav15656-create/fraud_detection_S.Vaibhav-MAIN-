@@ -23,7 +23,7 @@ def load_model():
     scaler    = joblib.load("dashboard/scaler.pkl")
     threshold = joblib.load("dashboard/threshold.pkl")
     with open("feature_cols.json") as f:
-        feat_cols = json.load(f)
+        with open("dashboard/feature_cols.json") as f:
     return model, scaler, threshold, feat_cols
 
 @st.cache_data
