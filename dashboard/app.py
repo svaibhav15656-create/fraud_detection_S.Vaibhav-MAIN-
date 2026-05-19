@@ -19,13 +19,14 @@ st.set_page_config(
 # ── Load artefacts ────────────────────────────────────────────────
 @st.cache_resource
 def load_model():
-    model     = joblib.load("dashboard/model.pkl")
-    scaler    = joblib.load("dashboard/scaler.pkl")
+    model = joblib.load("dashboard/model.pkl")
+    scaler = joblib.load("dashboard/scaler.pkl")
     threshold = joblib.load("dashboard/threshold.pkl")
-    with open("feature_cols.json") as f:
-        with open("dashboard/feature_cols.json") as f:
-    return model, scaler, threshold, feat_cols
 
+    with open("dashboard/feature_cols.json") as f:
+        feat_cols = json.load(f)
+
+    return model, scaler, threshold, feat_cols
 @st.cache_data
 def load_data():
     return pd.read_csv("test_results.csv")
